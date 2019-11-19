@@ -21,4 +21,22 @@ public class LoginGeneratorTest {
     String login = generator.generateLoginForNomAndPrenom("Durand", "Paul");
     assertEquals("PDUR", login);
   }
+
+  @Test
+  public void generateLoginCT1WhenExisting() {
+    String login = generator.generateLoginForNomAndPrenom("Ralling", "John");
+    assertEquals("JRAL2", login);
+  }
+
+  @Test
+  public void generateLoginCT2() {
+    String login = generator.generateLoginForNomAndPrenom("Rolling", "Jean");
+    assertEquals("JROL1", login);
+  }
+
+  @Test
+  public void generateLoginCT3() {
+    String login = generator.generateLoginForNomAndPrenom("Dùrand", "Paul");
+    assertEquals("PDUR", login);
+  }
 }
