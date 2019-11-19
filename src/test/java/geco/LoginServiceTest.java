@@ -14,7 +14,7 @@ public class LoginServiceTest {
 
   @Before
   public void setUp() {
-    login = new LoginService(new String[] {"AB", "ABC", "AC"});
+    login = new LoginService(new String[]{"AB", "ABC", "AC"});
   }
 
   @Test
