@@ -39,4 +39,10 @@ public class LoginGeneratorTest {
     String login = generator.generateLoginForNomAndPrenom("Dùrand", "Paul");
     assertEquals("PDUR", login);
   }
+
+  @Test
+  public void generateLoginCT4Hotfix() {
+    String login = generator.generateLoginForNomAndPrenom("Du", "Paul");
+    assertEquals("PDU", login);
+  }
 }

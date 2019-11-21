@@ -38,16 +38,17 @@ public class LoginGenerator {
    */
   public String generateLoginForNomAndPrenom(String nom, String prenom) {
     String p = deAccent(prenom.substring(0, 1).toUpperCase());
-    String n = deAccent(nom.substring(0, 3).toUpperCase());
+    int nSize = (nom.length() > 2) ? 3 : nom.length();
+    String n = deAccent(nom.substring(0, nSize).toUpperCase());
     String login = p + n;
 
     List<String> similarities = loginService.findAllLoginsStartingWith(login);
     for (String l : similarities) {
       // has a number behind
       if (l.length() > 4) {
-        int num = Integer.parseInt(l.substring(l.length()-1, l.length()));
+        int num = Integer.parseInt(l.substring(l.length() - 1, l.length()));
         // remplace current number
-        login = (l.substring(0, l.length()-1)) + (num+1);
+        login = (l.substring(0, l.length() - 1)) + (num + 1);
       } else {
         login = l + "1";
       }
